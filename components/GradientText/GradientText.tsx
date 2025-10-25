@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { clsx } from '@/app/lib/style';
+import { clsx } from '@/lib/style';
 
 import classes from './GradientText.module.scss';
 

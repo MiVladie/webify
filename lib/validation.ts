@@ -1,4 +1,4 @@
-import { IRule, TLongRuleExpression, IValues } from '@/app/interfaces/validation';
+import { IRule, TLongRuleExpression, IValues } from '@/interfaces/validation';
 
 const getRule = (rules: IRule, name: keyof IRule) => {
 	let result;

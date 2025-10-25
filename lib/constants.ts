@@ -1,3 +1,6 @@
+export const PROD = process.env.NODE_ENV === 'production';
+export const NAME = 'webify';
+
 export const PROMPT_PLACEHOLDER_IDEAS = [
 	'sushi styled website with pastel colors and modern design',
 	'futuristic tech blog with dark mode',

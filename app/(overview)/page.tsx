@@ -1,14 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { PROMPT_PLACEHOLDER_IDEAS } from '@/app/lib/constants';
+import { PROMPT_PLACEHOLDER_IDEAS } from '@/lib/constants';
 
-import LightRays from '@/app/components/LightRays/LightRays';
-import GradientText from '@/app/components/GradientText/GradientText';
-import Input from '@/app/components/Input/Input';
-import Form from '@/app/components/Form/Form';
-import useForm from '@/app/hooks/useForm';
-import useTyping from '@/app/hooks/useTyping';
+import LightRays from '@/components/LightRays/LightRays';
+import GradientText from '@/components/GradientText/GradientText';
+import Input from '@/components/Input/Input';
+import Form from '@/components/Form/Form';
+import useForm from '@/hooks/useForm';
+import useTyping from '@/hooks/useTyping';
 
 import classes from './Page.module.scss';
 

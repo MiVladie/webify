@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
-import { geist } from '@/app/lib/fonts';
+import { geist } from '@/lib/fonts';
 
-import '@/app/styles/main.scss';
+import '@/styles/main.scss';
 
 export const metadata: Metadata = {
 	title: 'Webify',

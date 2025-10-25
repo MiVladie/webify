@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 
 import { Renderer, Program, Triangle, Mesh } from 'ogl';
-import { clsx } from '@/app/lib/style';
+import { clsx } from '@/lib/style';
 
 import classes from './LightRays.module.scss';
 

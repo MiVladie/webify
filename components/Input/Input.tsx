@@ -1,6 +1,6 @@
 'use client';
 
-import { clsx } from '@/app/lib/style';
+import { clsx } from '@/lib/style';
 
 import classes from './Input.module.scss';
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getRandomInt } from '@/app/lib/optimization';
+import { getRandomInt } from '@/lib/optimization';
 
 interface Props {
 	data: string[];

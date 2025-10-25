@@ -1,13 +1,15 @@
 import type { NextConfig } from 'next';
 
-const isProd = process.env.NODE_ENV === 'production';
-const repoName = 'webify';
+import { NAME, PROD } from '@/lib/constants';
 
 const nextConfig: NextConfig = {
 	reactCompiler: true,
 	output: 'export',
-	basePath: isProd ? `/${repoName}` : '',
-	assetPrefix: isProd ? `/${repoName}/` : ''
+	basePath: PROD ? `/${NAME}` : '',
+	assetPrefix: '',
+	sassOptions: {
+		includePaths: ['@/styles']
+	}
 };
 
 export default nextConfig;
