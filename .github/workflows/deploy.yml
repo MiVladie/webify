@@ -39,7 +39,10 @@ jobs:
 
                   git add .
                   git commit -m "Deploy to gh-pages"
-                  git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/MiVladie/webify.git gh-pages
+
+                  git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/MiVladie/webify.git
+
+                  git push -f origin gh-pages
 
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
