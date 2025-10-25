@@ -37,7 +37,9 @@ jobs:
 
                   git checkout -b gh-pages || git checkout gh-pages
 
-                  git rm -rf .
+                  git rm -rf .  
+
+                  cp -R out/* .
 
                   git add .
                   git commit -m "Deploy to gh-pages"
