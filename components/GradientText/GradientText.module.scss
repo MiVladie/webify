@@ -9,6 +9,8 @@
 	transition: box-shadow 0.5s ease-out;
 	overflow: hidden;
 
+	vertical-align: bottom;
+
 	@include flex;
 
 	.Overlay {

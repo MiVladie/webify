@@ -36,11 +36,7 @@
 			margin-bottom: $spacing-xxl;
 
 			.Title {
-				align-items: center;
-
 				text-align: center;
-
-				@include flex;
 
 				@include pop(bottom);
 
