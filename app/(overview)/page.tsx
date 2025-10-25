@@ -5,10 +5,13 @@ import { PROMPT_PLACEHOLDER_IDEAS } from '@/lib/constants';
 
 import LightRays from '@/components/LightRays/LightRays';
 import GradientText from '@/components/GradientText/GradientText';
-import Input from '@/components/Input/Input';
 import Form from '@/components/Form/Form';
+import Input from '@/components/Input/Input';
+import Knob from '@/components/Knob/Knob';
 import useForm from '@/hooks/useForm';
 import useTyping from '@/hooks/useTyping';
+
+import Arrow from '@/public/icons/arrow.svg';
 
 import classes from './Page.module.scss';
 
@@ -20,7 +23,7 @@ export default function Home() {
 	const [loading, setLoading] = useState<boolean>(false);
 	const [ready, setReady] = useState<boolean>(true);
 
-	const { values, errors, handleChange, handleFocus, handleBlur, handleSubmit, handleReset } = useForm<PromptFields>({
+	const { values, handleChange, handleFocus, handleBlur, handleSubmit, handleReset } = useForm<PromptFields>({
 		initialValues: {
 			prompt: ''
 		},
@@ -59,7 +62,7 @@ export default function Home() {
 				<div className={classes.Wrapper}>
 					<h1 className={classes.Title}>
 						What are we&nbsp;
-						<GradientText>{' building '}</GradientText>&nbsp;today?
+						<GradientText>building</GradientText>&nbsp;today?
 					</h1>
 				</div>
 
@@ -72,9 +75,9 @@ export default function Home() {
 						onChange={handleChange}
 						onFocus={handleFocus}
 						onBlur={handleBlur}
-						error={errors.prompt}
 						autofocus
 						className={classes.Input}
+						suffix={<Knob icon={<Arrow />} onClick={handleSubmit} disabled={!values.prompt} />}
 					/>
 				</Form>
 			</div>
