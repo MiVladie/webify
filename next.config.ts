@@ -1,8 +1,13 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
+
+const isProd = process.env.NODE_ENV === 'production';
+const repoName = 'webify';
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
+	reactCompiler: true,
+	output: 'export',
+	basePath: isProd ? `/${repoName}` : '',
+	assetPrefix: isProd ? `/${repoName}/` : ''
 };
 
 export default nextConfig;
