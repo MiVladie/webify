@@ -1,0 +1,11 @@
+$breakpoint-sm: 720px;
+
+$container-max-width: 1788px;
+
+@mixin respond($breakpoint) {
+	@if $breakpoint == sm {
+		@media (min-width: $breakpoint-sm) {
+			@content;
+		}
+	}
+}

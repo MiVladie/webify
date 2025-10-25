@@ -1,0 +1,34 @@
+@mixin flex($justify: center, $align: center, $direction: row) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+
+	flex-direction: $direction;
+}
+
+@mixin position($position: absolute, $top: auto, $right: auto, $bottom: auto, $left: auto, $zIndex: auto) {
+	position: $position;
+
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+
+	z-index: $zIndex;
+}
+
+@mixin animate($animations...) {
+	$list: ();
+
+	@each $anim in $animations {
+		$name: nth($anim, 1);
+		$delay: if(length($anim) > 1, nth($anim, 2), 0s);
+		$duration: if(length($anim) > 2, nth($anim, 3), 1s);
+		$easing: if(length($anim) > 3, nth($anim, 4), ease-out);
+		$fill: if(length($anim) > 4, nth($anim, 5), forwards);
+
+		$list: append($list, #{$name} #{$duration} #{$easing} #{$delay} #{$fill}, comma);
+	}
+
+	animation: $list;
+}

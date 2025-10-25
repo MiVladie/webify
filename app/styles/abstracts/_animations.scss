@@ -1,0 +1,49 @@
+$easing-decelerate: cubic-bezier(0.4, 0, 0.2, 1);
+
+@mixin pop($direction: top) {
+	$distance: 100%;
+	$offset: 2px;
+	$translate: 0 0;
+
+	@if $direction == top {
+		$translate: 0, calc($distance * -1 - $offset);
+	} @else if $direction == bottom {
+		$translate: 0, calc($distance + $offset);
+	} @else if $direction == left {
+		$translate: calc($distance * -1 - $offset), 0;
+	} @else if $direction == right {
+		$translate: calc($distance + $offset), 0;
+	}
+
+	transform: translate(#{$translate});
+
+	@keyframes pop-#{$direction} {
+		from {
+			transform: translate(#{$translate});
+		}
+		to {
+			transform: translate(0, 0);
+		}
+	}
+}
+
+@mixin fade($mode: in) {
+	$from-opacity: 0;
+	$to-opacity: 1;
+
+	@if $mode == out {
+		$from-opacity: 1;
+		$to-opacity: 0;
+	}
+
+	opacity: $from-opacity;
+
+	@keyframes fade-#{$mode} {
+		from {
+			opacity: $from-opacity;
+		}
+		to {
+			opacity: $to-opacity;
+		}
+	}
+}

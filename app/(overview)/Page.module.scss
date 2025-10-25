@@ -1,0 +1,72 @@
+@use '@/app/styles/abstracts' as *;
+
+.Home {
+	width: 100vw;
+	height: 100vh;
+
+	position: relative;
+	overflow: hidden;
+
+	@include flex;
+
+	.Background {
+		@include position(absolute, 0, 0, 0, 0);
+
+		@include fade(in);
+
+		@include animate((fade-in, 0.5s, 2s, ease-out));
+	}
+
+	.Chat {
+		width: 90vw;
+		height: 100%;
+
+		z-index: 100;
+
+		@include flex(center, center, column);
+
+		.Wrapper {
+			overflow: hidden;
+
+			height: max-content;
+
+			margin: 0;
+			padding: 0;
+
+			margin-bottom: $spacing-xxl;
+
+			.Title {
+				align-items: center;
+
+				text-align: center;
+
+				@include flex;
+
+				@include pop(bottom);
+
+				@include animate((pop-bottom, 2s, 1.5s, $easing-decelerate));
+			}
+		}
+
+		.Form {
+			width: 90vw;
+
+			.Input {
+				@include fade(in);
+				@include pop(top);
+
+				@include animate((pop-top, 3s, 2s, $easing-decelerate), (fade-in, 3.75s, 1s, $easing-decelerate));
+			}
+		}
+	}
+}
+
+@include respond(sm) {
+	.Home {
+		.Chat {
+			.Form {
+				width: 650px;
+			}
+		}
+	}
+}

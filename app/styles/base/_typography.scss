@@ -1,0 +1,44 @@
+@use '../abstracts' as *;
+
+body {
+	font-family: $font-family-default;
+	font-size: $font-size-md;
+	color: $color-text-default;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $font-family-default;
+	font-weight: 600;
+	letter-spacing: -2.4px;
+	text-wrap: balance;
+
+	margin: 0;
+}
+
+h1 {
+	font-size: $font-size-xl;
+}
+
+h2 {
+	font-size: $font-size-lg;
+}
+
+a {
+	font-size: $font-size-md;
+}
+
+p {
+	font-family: $font-family-default;
+	font-size: $font-size-md;
+	color: $color-text-info;
+	text-wrap: balance;
+}
+
+b {
+	font-weight: 600;
+}

@@ -1,0 +1,51 @@
+@use '../abstracts' as *;
+
+@import 'tailwindcss';
+
+html {
+	box-sizing: border-box;
+	font-size: 100%;
+
+	background-color: $color-bg-default;
+
+	::selection {
+		background-color: #67327c;
+		color: #ffffff;
+	}
+}
+
+img,
+video {
+	max-width: 100%;
+	display: block;
+	height: auto;
+}
+
+input,
+textarea {
+	border: none;
+	background: transparent;
+
+	padding: 0;
+	margin: 0;
+
+	outline: none;
+
+	resize: none;
+	overflow: hidden;
+}
+
+button {
+	font-family: $font-family-default;
+	font-size: $font-size-md;
+
+	color: $color-text-default;
+
+	padding: 0;
+
+	box-sizing: border-box;
+	background: none;
+	border: none;
+
+	cursor: pointer;
+}

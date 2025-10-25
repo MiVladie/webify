@@ -1,0 +1,23 @@
+@use '@/app/styles/abstracts' as *;
+
+.Wrapper {
+	background-color: $color-bg-secondary;
+
+	box-shadow: $box-shadow-lg;
+	border-radius: $radius-xl;
+
+	@include flex;
+
+	.Input {
+		width: 100%;
+		height: auto;
+
+		padding: $spacing-lg;
+
+		// background-color: red;
+
+		field-sizing: content;
+
+		color: $color-text-default;
+	}
+}
