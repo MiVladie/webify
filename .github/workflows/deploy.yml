@@ -24,12 +24,10 @@ jobs:
 
             - name: Install dependencies
               run: |
-                  cd webify
                   npm install
 
             - name: Build project
               run: |
-                  cd webify
                   npm run build
 
             - name: Deploy to gh-pages
@@ -38,11 +36,6 @@ jobs:
                   git config user.email "MiVladie@users.noreply.github.com"
 
                   git checkout -b gh-pages || git checkout gh-pages
-
-                  git rm -rf .
-
-                  cp -R webify/out/* .
-                  rm -rf webify
 
                   git add .
                   git commit -m "Deploy to gh-pages"
