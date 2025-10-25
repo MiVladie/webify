@@ -44,6 +44,8 @@ jobs:
 
                   cp -R out/* .
 
+                  touch .nojekyll
+
                   rm -rf out
 
                   git add .
