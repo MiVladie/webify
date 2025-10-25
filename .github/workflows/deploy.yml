@@ -30,12 +30,10 @@ jobs:
               run: |
                   npm run build
 
-            - name: Print working directory
+            - name: Remove unnecessary files
               run: |
-                  pwd
+                  rm -rf node_modules .next
 
-            - name: List files in root
-              run: |
                   ls -la
 
             - name: Deploy to gh-pages
@@ -46,7 +44,6 @@ jobs:
                   git checkout --orphan gh-pages
                   git rm -rf .  
 
-                  rm -rf out/.next out/node_modules
                   cp -R out/* .
 
                   git add .
