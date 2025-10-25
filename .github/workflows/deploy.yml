@@ -37,11 +37,13 @@ jobs:
 
                   git checkout -b gh-pages || git checkout gh-pages
 
+                  git rm -rf .
+
+                  cp -R out/* .
+                  rm -rf .
+
                   git add .
                   git commit -m "Deploy to gh-pages"
-
-                  git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/MiVladie/webify.git
-
                   git push -f origin gh-pages
 
               env:
