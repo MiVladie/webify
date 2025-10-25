@@ -9,6 +9,14 @@ const nextConfig: NextConfig = {
 	assetPrefix: '',
 	sassOptions: {
 		includePaths: ['@/styles']
+	},
+	turbopack: {
+		rules: {
+			'*.svg': {
+				loaders: ['@svgr/webpack'],
+				as: '*.js'
+			}
+		}
 	}
 };
 

@@ -6,18 +6,22 @@
 	box-shadow: $box-shadow-lg;
 	border-radius: $radius-xl;
 
+	padding: 0 $spacing-sm 0 $spacing-lg;
+
 	@include flex;
 
 	.Input {
 		width: 100%;
 		height: auto;
 
-		padding: $spacing-lg;
-
-		// background-color: red;
+		padding: $spacing-lg 0;
 
 		field-sizing: content;
 
 		color: $color-text-default;
+	}
+
+	.Suffix {
+		margin-left: $spacing-md;
 	}
 }
