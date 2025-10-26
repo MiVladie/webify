@@ -44,7 +44,7 @@ const Input = <T extends string | undefined>({
 	};
 
 	return (
-		<div className={clsx(classes.Wrapper, className)}>
+		<div className={clsx(classes.Wrapper, { [classes.Disabled]: !!disabled }, className)}>
 			<textarea {...props} />
 
 			{suffix && <div className={classes.Suffix}>{suffix}</div>}

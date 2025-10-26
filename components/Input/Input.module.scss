@@ -8,6 +8,8 @@
 
 	padding: 0 $spacing-sm 0 $spacing-lg;
 
+	transition: background-color 0.15s;
+
 	@include flex;
 
 	.Input {
@@ -19,9 +21,19 @@
 		field-sizing: content;
 
 		color: $color-text-default;
+
+		transition: color 0.15s;
 	}
 
 	.Suffix {
 		margin-left: $spacing-md;
+	}
+}
+
+.Disabled {
+	background-color: darken($color-bg-secondary, 3);
+
+	.Input {
+		color: #777;
 	}
 }

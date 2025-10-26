@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { PROMPT_PLACEHOLDER_IDEAS } from '@/lib/constants';
+import { clsx } from '@/lib/style';
 
 import LightRays from '@/components/LightRays/LightRays';
 import GradientText from '@/components/GradientText/GradientText';
@@ -20,8 +21,7 @@ export type PromptFields = {
 };
 
 export default function Home() {
-	const [loading, setLoading] = useState<boolean>(false);
-	const [ready, setReady] = useState<boolean>(true);
+	const [prompted, setPrompted] = useState<boolean>(false);
 
 	const { values, handleChange, handleFocus, handleBlur, handleSubmit, handleReset } = useForm<PromptFields>({
 		initialValues: {
@@ -35,12 +35,12 @@ export default function Home() {
 		onSubmit: handlePrompt
 	});
 
-	const placeholder = useTyping({ data: PROMPT_PLACEHOLDER_IDEAS, active: !values.prompt && ready });
+	const placeholder = useTyping({ data: PROMPT_PLACEHOLDER_IDEAS, active: !values.prompt });
 
 	function handlePrompt({ prompt }: PromptFields) {
 		console.log({ prompt });
 
-		handleReset();
+		setPrompted(true);
 	}
 
 	return (
@@ -59,8 +59,12 @@ export default function Home() {
 			/>
 
 			<div className={classes.Chat}>
-				<div className={classes.Wrapper}>
-					<h1 className={classes.Title}>
+				<div className={clsx(classes.Wrapper, { [classes.WrapperPrompted]: prompted })}>
+					<h1
+						className={clsx(classes.Title, {
+							[classes.TitleReady]: !prompted,
+							[classes.TitlePrompted]: prompted
+						})}>
 						What are we&nbsp;
 						<GradientText>building</GradientText>&nbsp;today?
 					</h1>
@@ -71,13 +75,13 @@ export default function Home() {
 						name='prompt'
 						placeholder={'A ' + placeholder}
 						value={values.prompt}
-						disabled={loading}
+						disabled={prompted}
 						onChange={handleChange}
 						onFocus={handleFocus}
 						onBlur={handleBlur}
 						autofocus
-						className={classes.Input}
-						suffix={<Knob icon={<Arrow />} onClick={handleSubmit} disabled={!values.prompt} />}
+						className={clsx({ [classes.InputReady]: !prompted, [classes.InputPrompted]: prompted })}
+						suffix={<Knob icon={<Arrow />} onClick={handleSubmit} disabled={!values.prompt || prompted} />}
 					/>
 				</Form>
 			</div>

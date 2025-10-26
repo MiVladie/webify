@@ -28,25 +28,46 @@
 		.Wrapper {
 			overflow: hidden;
 
+			padding: 0 $spacing-xs;
 			margin-bottom: $spacing-xxl;
 
 			.Title {
 				text-align: center;
-
-				@include pop(bottom);
-
-				@include animate((pop-bottom, 2s, 1.5s, $easing-decelerate));
 			}
+
+			.TitleReady {
+				@include pop(in, bottom);
+
+				@include animate((pop-in-bottom, 2s, 1.5s, $easing-decelerate));
+			}
+
+			.TitlePrompted {
+				@include fade(out);
+				@include pop(out, top);
+
+				@include animate((pop-out-top, 1s, 1.5s, normal), (fade-out, 1s, 1s, normal));
+			}
+		}
+
+		.WrapperPrompted {
+			overflow: unset;
 		}
 
 		.Form {
 			width: 90vw;
 
-			.Input {
+			.InputReady {
 				@include fade(in);
-				@include pop(top);
+				@include pop(in, top);
 
-				@include animate((pop-top, 3s, 2s, $easing-decelerate), (fade-in, 3.75s, 1s, $easing-decelerate));
+				@include animate((pop-in-top, 3s, 2s, $easing-decelerate), (fade-in, 3.75s, 1s, $easing-decelerate));
+			}
+
+			.InputPrompted {
+				@include fade(out);
+				@include pop(out, bottom);
+
+				@include animate((pop-out-bottom, 1s, 1.5s, normal), (fade-out, 1s, 1s, normal));
 			}
 		}
 	}

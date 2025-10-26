@@ -1,28 +1,41 @@
 $easing-decelerate: cubic-bezier(0.4, 0, 0.2, 1);
 
-@mixin pop($direction: top) {
+@mixin pop($mode: in, $direction: top) {
 	$distance: 100%;
 	$offset: 2px;
-	$translate: 0 0;
+
+	$position_offset: 0, 0;
+	$position_original: 0, 0;
 
 	@if $direction == top {
-		$translate: 0, calc($distance * -1 - $offset);
+		$position_offset: 0, calc($distance * -1 - $offset);
 	} @else if $direction == bottom {
-		$translate: 0, calc($distance + $offset);
+		$position_offset: 0, calc($distance + $offset);
 	} @else if $direction == left {
-		$translate: calc($distance * -1 - $offset), 0;
+		$position_offset: calc($distance * -1 - $offset), 0;
 	} @else if $direction == right {
-		$translate: calc($distance + $offset), 0;
+		$position_offset: calc($distance + $offset), 0;
 	}
 
-	transform: translate(#{$translate});
+	$from: $position_offset;
+	$to: $position_original;
 
-	@keyframes pop-#{$direction} {
+	@if $mode == out {
+		$temp: $from;
+
+		$from: $to;
+		$to: $temp;
+	}
+
+	transform: translate(#{$from});
+
+	@keyframes pop-#{$mode}-#{$direction} {
 		from {
-			transform: translate(#{$translate});
+			transform: translate(#{$from});
 		}
+
 		to {
-			transform: translate(0, 0);
+			transform: translate(#{$to});
 		}
 	}
 }
