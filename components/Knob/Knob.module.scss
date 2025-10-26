@@ -12,6 +12,8 @@
 
 	transition: background-color 0.15s;
 
+	overflow: hidden;
+
 	cursor: pointer;
 
 	@include flex;
