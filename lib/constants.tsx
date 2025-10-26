@@ -1,3 +1,5 @@
+import GradientText from '@/components/GradientText/GradientText';
+
 export const PROD = process.env.NODE_ENV === 'production';
 export const NAME = 'webify';
 
@@ -88,4 +90,125 @@ export const PROMPT_PLACEHOLDER_IDEAS = [
 	'charity SPA with donation tracker and stories',
 	'online portfolio landing page with smooth scrolling',
 	'music band landing page with tour and album sections'
+];
+export const PROMPT_LOADING_FEEDBACK = [
+	[
+		<>
+			Turning your&nbsp;<GradientText>idea</GradientText>&nbsp;into pixels..
+		</>,
+		<>
+			Shaping the&nbsp;<GradientText>design</GradientText>..
+		</>,
+		<>
+			Adding a touch of&nbsp;<GradientText>magic</GradientText>..
+		</>,
+		<>
+			Almost&nbsp;<GradientText>there</GradientText>..
+		</>,
+		<>
+			Ready to see your&nbsp;<GradientText>vision</GradientText>?
+		</>
+	],
+	[
+		<>
+			Gathering&nbsp;<GradientText>inspiration</GradientText>..
+		</>,
+		<>
+			Sketching&nbsp;<GradientText>possibilities</GradientText>..
+		</>,
+		<>
+			Breathing life into your&nbsp;<GradientText>idea</GradientText>..
+		</>,
+		<>
+			Refining the&nbsp;<GradientText>details</GradientText>..
+		</>,
+		<>
+			Here it&nbsp;<GradientText>comes</GradientText>!
+		</>
+	],
+	[
+		<>
+			Imagining your&nbsp;<GradientText>world</GradientText>..
+		</>,
+		<>
+			Translating thoughts into&nbsp;<GradientText>form</GradientText>..
+		</>,
+		<>
+			Crafting something&nbsp;<GradientText>beautiful</GradientText>..
+		</>,
+		<>
+			Polishing every&nbsp;<GradientText>edge</GradientText>..
+		</>,
+		<>
+			Almost&nbsp;<GradientText>ready</GradientText>!
+		</>
+	],
+	[
+		<>
+			Catching your creative&nbsp;<GradientText>spark</GradientText>..
+		</>,
+		<>
+			Building the&nbsp;<GradientText>foundation</GradientText>..
+		</>,
+		<>
+			Bringing it to&nbsp;<GradientText>life</GradientText>..
+		</>,
+		<>
+			Adding final&nbsp;<GradientText>touches</GradientText>..
+		</>,
+		<>
+			Your creation&nbsp;<GradientText>awaits</GradientText>!
+		</>
+	],
+	[
+		<>
+			Dreaming in&nbsp;<GradientText>color</GradientText>..
+		</>,
+		<>
+			Designing with&nbsp;<GradientText>purpose</GradientText>..
+		</>,
+		<>
+			Molding your&nbsp;<GradientText>vision</GradientText>..
+		</>,
+		<>
+			Fine-tuning every&nbsp;<GradientText>pixel</GradientText>..
+		</>,
+		<>
+			It's about to&nbsp;<GradientText>appear</GradientText>!
+		</>
+	],
+	[
+		<>
+			Collecting ideas from the&nbsp;<GradientText>ether</GradientText>..
+		</>,
+		<>
+			Forming the&nbsp;<GradientText>structure</GradientText>..
+		</>,
+		<>
+			Infusing soul into the&nbsp;<GradientText>design</GradientText>..
+		</>,
+		<>
+			A few tweaks&nbsp;<GradientText>left</GradientText>..
+		</>,
+		<>
+			Here's your&nbsp;<GradientText>masterpiece</GradientText>!
+		</>
+	],
+	[
+		<>
+			Setting the stage for&nbsp;<GradientText>creativity</GradientText>..
+		</>,
+		<>
+			Sketching the&nbsp;<GradientText>outlines</GradientText>..
+		</>,
+		<>
+			Painting with&nbsp;<GradientText>imagination</GradientText>..
+		</>,
+		<>
+			Adding movement and&nbsp;<GradientText>flow</GradientText>..
+		</>,
+		<>
+			Get ready to&nbsp;<GradientText>explore</GradientText>!
+		</>
+	]
 ];

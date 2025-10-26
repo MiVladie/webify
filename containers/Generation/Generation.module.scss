@@ -1,0 +1,29 @@
+@use '@/styles/abstracts' as *;
+
+.Generation {
+	overflow: hidden;
+
+	padding: 0 $spacing-xs;
+	margin-bottom: $spacing-xxl;
+
+	.Title {
+		text-align: center;
+	}
+
+	.TitleReady {
+		@include pop(in, bottom);
+
+		@include animate((pop-in-bottom, 0s, 1.5s, $easing-decelerate));
+	}
+
+	.TitleDone {
+		@include fade(out);
+		@include pop(out, top);
+
+		@include animate((pop-out-top, 0s, 1.5s, normal), (fade-out, 0s, 1.25s, normal));
+	}
+}
+
+.GenerationDone {
+	overflow: unset;
+}

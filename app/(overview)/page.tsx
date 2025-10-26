@@ -1,46 +1,40 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
 import { PROMPT_PLACEHOLDER_IDEAS } from '@/lib/constants';
-import { clsx } from '@/lib/style';
 
 import LightRays from '@/components/LightRays/LightRays';
-import GradientText from '@/components/GradientText/GradientText';
-import Form from '@/components/Form/Form';
-import Input from '@/components/Input/Input';
-import Knob from '@/components/Knob/Knob';
-import useForm from '@/hooks/useForm';
-import useTyping from '@/hooks/useTyping';
-
-import Arrow from '@/public/icons/arrow.svg';
+import Chat, { PromptFields } from '@/containers/Chat/Chat';
+import Generation from '@/containers/Generation/Generation';
 
 import classes from './Page.module.scss';
 
-export type PromptFields = {
-	prompt: string;
-};
-
 export default function Home() {
-	const [prompted, setPrompted] = useState<boolean>(false);
+	const [step, setStep] = useState<number>();
 
-	const { values, handleChange, handleFocus, handleBlur, handleSubmit, handleReset } = useForm<PromptFields>({
-		initialValues: {
-			prompt: ''
-		},
-		rules: {
-			prompt: {
-				required: true
-			}
-		},
-		onSubmit: handlePrompt
-	});
+	useEffect(() => {
+		if (step == undefined || step === PROMPT_PLACEHOLDER_IDEAS.length) {
+			return;
+		}
 
-	const placeholder = useTyping({ data: PROMPT_PLACEHOLDER_IDEAS, active: !values.prompt });
+		const timeout = setTimeout(() => {
+			setStep((prevStep) => (prevStep ?? 0) + 1);
+		}, 5000);
+
+		return () => clearTimeout(timeout);
+	}, [step]);
 
 	function handlePrompt({ prompt }: PromptFields) {
 		console.log({ prompt });
+	}
 
-		setPrompted(true);
+	function handleGenerate() {
+		setStep(0);
+	}
+
+	function handleDisplay() {
+		console.log('new website!');
 	}
 
 	return (
@@ -58,33 +52,9 @@ export default function Home() {
 				followMouse
 			/>
 
-			<div className={classes.Chat}>
-				<div className={clsx(classes.Wrapper, { [classes.WrapperPrompted]: prompted })}>
-					<h1
-						className={clsx(classes.Title, {
-							[classes.TitleReady]: !prompted,
-							[classes.TitlePrompted]: prompted
-						})}>
-						What are we&nbsp;
-						<GradientText>building</GradientText>&nbsp;today?
-					</h1>
-				</div>
+			<Chat onPrompt={handlePrompt} onAnimationEnd={handleGenerate} className={classes.Chat} />
 
-				<Form onSubmit={handleSubmit} className={classes.Form}>
-					<Input
-						name='prompt'
-						placeholder={'A ' + placeholder}
-						value={values.prompt}
-						disabled={prompted}
-						onChange={handleChange}
-						onFocus={handleFocus}
-						onBlur={handleBlur}
-						autofocus
-						className={clsx({ [classes.InputReady]: !prompted, [classes.InputPrompted]: prompted })}
-						suffix={<Knob icon={<Arrow />} onClick={handleSubmit} disabled={!values.prompt || prompted} />}
-					/>
-				</Form>
-			</div>
+			<Generation step={step} onAnimationEnd={handleDisplay} />
 		</main>
 	);
 }
