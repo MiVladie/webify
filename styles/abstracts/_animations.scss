@@ -1,8 +1,7 @@
 $easing-decelerate: cubic-bezier(0.4, 0, 0.2, 1);
 
-@mixin pop($mode: in, $direction: top) {
+@mixin pop($mode: in, $direction: top, $offset: 2px) {
 	$distance: 100%;
-	$offset: 2px;
 
 	$position_offset: 0, 0;
 	$position_original: 0, 0;

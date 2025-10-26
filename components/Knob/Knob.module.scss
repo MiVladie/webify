@@ -30,6 +30,18 @@
 
 		color: $color-bg-secondary;
 	}
+
+	.IconReady {
+		@include pop(in, bottom, 8px);
+
+		@include animate((pop-in-bottom, 0s, 0.5s, normal));
+	}
+
+	.IconClicked {
+		@include pop(out, top, 10px);
+
+		@include animate((pop-out-top, 0s, 0.5s, normal));
+	}
 }
 
 .Disabled {

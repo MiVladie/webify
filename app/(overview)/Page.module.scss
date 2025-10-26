@@ -45,7 +45,7 @@
 				@include fade(out);
 				@include pop(out, top);
 
-				@include animate((pop-out-top, 1s, 1.5s, normal), (fade-out, 1s, 1s, normal));
+				@include animate((pop-out-top, 1s, 1.5s, normal), (fade-out, 1s, 1.25s, normal));
 			}
 		}
 
@@ -67,7 +67,7 @@
 				@include fade(out);
 				@include pop(out, bottom);
 
-				@include animate((pop-out-bottom, 1s, 1.5s, normal), (fade-out, 1s, 1s, normal));
+				@include animate((pop-out-bottom, 1s, 1.5s, normal), (fade-out, 1s, 1.25s, normal));
 			}
 		}
 	}
