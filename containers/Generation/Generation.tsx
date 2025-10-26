@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { PROMPT_LOADING_FEEDBACK } from '@/lib/constants';
+import { PROMPT_LOADING_FEEDBACK } from '@/lib/data';
 import { getRandomInt } from '@/lib/optimization';
 import { clsx } from '@/lib/style';
 

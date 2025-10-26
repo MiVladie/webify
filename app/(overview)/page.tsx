@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { PROMPT_PLACEHOLDER_IDEAS } from '@/lib/constants';
+import { PROMPT_PLACEHOLDER_IDEAS } from '@/lib/data';
 
 import LightRays from '@/components/LightRays/LightRays';
 import Chat, { PromptFields } from '@/containers/Chat/Chat';

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 
 import { clsx } from '@/lib/style';
-import { PROMPT_PLACEHOLDER_IDEAS } from '@/lib/constants';
+import { PROMPT_PLACEHOLDER_IDEAS } from '@/lib/data';
 
 import Form from '@/components/Form/Form';
 import Input from '@/components/Input/Input';

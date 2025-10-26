@@ -1,8 +1,5 @@
 import GradientText from '@/components/GradientText/GradientText';
 
-export const PROD = process.env.NODE_ENV === 'production';
-export const NAME = 'webify';
-
 export const PROMPT_PLACEHOLDER_IDEAS = [
 	'sushi styled website with pastel colors and modern design',
 	'futuristic tech blog with dark mode',
@@ -91,6 +88,7 @@ export const PROMPT_PLACEHOLDER_IDEAS = [
 	'online portfolio landing page with smooth scrolling',
 	'music band landing page with tour and album sections'
 ];
+
 export const PROMPT_LOADING_FEEDBACK = [
 	[
 		<>
