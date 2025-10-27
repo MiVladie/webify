@@ -1,0 +1,75 @@
+@use '@/styles/abstracts' as *;
+
+.Toggle {
+	background-color: #111;
+	box-shadow: 0 0 256px rgba(255, 255, 255, 0.075);
+	border-radius: 25px;
+
+	position: relative;
+
+	@include flex;
+
+	.Option {
+		width: 50px;
+		height: 42px;
+
+		transition: width 0.25s;
+
+		cursor: pointer;
+
+		z-index: 100;
+
+		@include flex;
+
+		&:hover {
+			.Icon {
+				svg {
+					opacity: 0.375;
+				}
+			}
+		}
+
+		.Icon {
+			svg {
+				transition: opacity 0.25s;
+				opacity: 0.25;
+			}
+		}
+	}
+
+	.Selected {
+		border-radius: 25px;
+
+		cursor: default;
+
+		&:hover {
+			.Icon {
+				svg {
+					opacity: 1;
+				}
+			}
+		}
+
+		.Icon {
+			svg {
+				opacity: 1;
+			}
+		}
+	}
+
+	.Circle {
+		width: 50px;
+		height: 42px;
+
+		background: radial-gradient(#d091d2, #7f5fc5);
+
+		border-radius: 25px;
+
+		transition: left 0.25s;
+
+		@include gradient;
+
+		@include position(absolute, 0, auto, 0, auto);
+		@include animate((gradient, 0s, 8s, linear, infinite));
+	}
+}

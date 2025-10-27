@@ -15,9 +15,13 @@ h6 {
 	font-family: $font-family-default;
 	font-weight: 600;
 	letter-spacing: -2.4px;
+
 	text-wrap: balance;
+	text-shadow: $text-shadow-lg;
 
 	margin: 0;
+
+	user-select: none;
 }
 
 h1 {
