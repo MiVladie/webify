@@ -60,12 +60,12 @@ const Chat = ({ onPrompt, onAnimationEnd, className }: Props) => {
 	}, [prompted]);
 
 	return (
-		<div className={clsx(classes.Chat, { [classes.ChatPrompted]: prompted }, className)}>
-			<div className={clsx(classes.Wrapper, { [classes.WrapperPrompted]: prompted })}>
+		<div className={clsx(classes.Chat, { [classes.ChatDone]: prompted }, className)}>
+			<div className={clsx(classes.Wrapper, { [classes.WrapperDone]: prompted })}>
 				<h1
 					className={clsx(classes.Title, {
 						[classes.TitleReady]: !prompted,
-						[classes.TitlePrompted]: prompted
+						[classes.TitleDone]: prompted
 					})}>
 					What are we&nbsp;
 					<GradientText>building</GradientText>&nbsp;today?
@@ -82,7 +82,7 @@ const Chat = ({ onPrompt, onAnimationEnd, className }: Props) => {
 					onFocus={handleFocus}
 					onBlur={handleBlur}
 					autofocus
-					className={clsx({ [classes.InputReady]: !prompted, [classes.InputPrompted]: prompted })}
+					className={clsx({ [classes.InputReady]: !prompted, [classes.InputDone]: prompted })}
 					suffix={<Knob icon={<Arrow />} onClick={handleSubmit} disabled={!values.prompt || prompted} />}
 				/>
 			</Form>

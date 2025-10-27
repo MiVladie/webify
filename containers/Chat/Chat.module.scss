@@ -1,16 +1,21 @@
 @use '@/styles/abstracts' as *;
 
 .Chat {
+	gap: $spacing-xxl;
+
 	@include flex(center, center, column);
 
 	.Wrapper {
 		overflow: hidden;
 
-		padding: 0 $spacing-xs;
-		margin-bottom: $spacing-xxl;
-
 		.Title {
 			text-align: center;
+
+			padding: 0 $spacing-sm;
+
+			span {
+				font-weight: 500;
+			}
 		}
 
 		.TitleReady {
@@ -19,15 +24,15 @@
 			@include animate((pop-in-bottom, 2s, 1.5s, $easing-decelerate));
 		}
 
-		.TitlePrompted {
+		.TitleDone {
 			@include fade(out);
 			@include pop(out, top);
 
-			@include animate((pop-out-top, 1s, 1.5s, normal), (fade-out, 1s, 1.25s, normal));
+			@include animate((pop-out-top, 1s, 1.5s, $easing-accelerate), (fade-out, 1s, 1.25s, $easing-accelerate));
 		}
 	}
 
-	.WrapperPrompted {
+	.WrapperDone {
 		overflow: unset;
 	}
 
@@ -41,7 +46,7 @@
 			@include animate((pop-in-top, 3s, 2s, $easing-decelerate), (fade-in, 3.75s, 1s, $easing-decelerate));
 		}
 
-		.InputPrompted {
+		.InputDone {
 			@include fade(out);
 			@include pop(out, bottom);
 
@@ -50,7 +55,7 @@
 	}
 }
 
-.ChatPrompted {
+.ChatDone {
 	@include hide;
 
 	@include animate((hide, 2.5s, 0s));

@@ -1,62 +1,31 @@
 @use '@/styles/abstracts' as *;
 
 .Text {
-	position: relative;
-	margin: 0 auto;
 	max-width: fit-content;
+
+	margin: 0 auto;
+
+	position: relative;
+
 	font-weight: 500;
+
 	backdrop-filter: blur(10px);
 	transition: box-shadow 0.5s ease-out;
+
 	overflow: hidden;
 
 	vertical-align: bottom;
 
 	@include flex;
-
-	.Overlay {
-		background-size: 300% 100%;
-
-		animation: gradient linear infinite;
-
-		pointer-events: none;
-
-		@include position(absolute, 0, 0, 0, 0, 0);
-
-		&::before {
-			width: calc(100% - 2px);
-			height: calc(100% - 2px);
-
-			transform: translate(-50%, -50%);
-
-			background-color: #060010;
-
-			content: '';
-
-			@include position(absolute, 50%, 50%, auto, auto, -1);
-		}
-	}
-}
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-
-	50% {
-		background-position: 100% 50%;
-	}
-
-	100% {
-		background-position: 0% 50%;
-	}
 }
 
 .Content {
-	display: inline-block;
-	position: relative;
-	z-index: 2;
-	background-size: 300% 100%;
 	background-clip: text;
 	-webkit-background-clip: text;
+
 	color: transparent;
-	animation: gradient linear infinite;
+
+	@include gradient;
+
+	@include animate((gradient, 0s, 8s, linear, infinite));
 }

@@ -6,18 +6,41 @@ import { clsx } from '@/lib/style';
 import classes from './Generation.module.scss';
 
 interface Props {
-	step?: number;
+	prompt?: string;
+	onData?: () => void;
 	onAnimationEnd?: () => void;
 	className?: string;
 }
 
 const randomIndex = getRandomInt(0, PROMPT_LOADING_FEEDBACK.length - 1);
 
-const Generation = ({ step, onAnimationEnd, className }: Props) => {
+const Generation = ({ prompt, onData, onAnimationEnd, className }: Props) => {
+	const [step, setStep] = useState<number>(0);
+
 	const [ready, setReady] = useState<boolean>(false);
 	const [done, setDone] = useState<boolean>(false);
 
 	const [index, setIndex] = useState<number>(0);
+
+	useEffect(() => {
+		if (prompt == undefined) {
+			return;
+		}
+
+		const timeout1 = setTimeout(() => setStep(1), 5000);
+		const timeout2 = setTimeout(() => setStep(2), 10000);
+		const timeout3 = setTimeout(() => setStep(3), 15000);
+		const timeout4 = setTimeout(() => setStep(4), 20000);
+		const timeout5 = setTimeout(() => setStep(5), 25000);
+
+		return () => {
+			clearTimeout(timeout1);
+			clearTimeout(timeout2);
+			clearTimeout(timeout3);
+			clearTimeout(timeout4);
+			clearTimeout(timeout5);
+		};
+	}, [prompt]);
 
 	useEffect(() => {
 		if (step == undefined) {
@@ -38,6 +61,8 @@ const Generation = ({ step, onAnimationEnd, className }: Props) => {
 
 		// Last pop up
 		if (step === PROMPT_LOADING_FEEDBACK[randomIndex].length) {
+			onData?.();
+
 			const timeout = setTimeout(() => {
 				onAnimationEnd?.();
 			}, 1500);
@@ -55,7 +80,7 @@ const Generation = ({ step, onAnimationEnd, className }: Props) => {
 		return () => clearTimeout(timeout);
 	}, [step]);
 
-	if (step == undefined || (!ready && !done)) {
+	if (prompt == undefined || (!ready && !done)) {
 		return null;
 	}
 

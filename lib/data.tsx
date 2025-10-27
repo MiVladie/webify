@@ -92,16 +92,16 @@ export const PROMPT_PLACEHOLDER_IDEAS = [
 export const PROMPT_LOADING_FEEDBACK = [
 	[
 		<>
-			Turning your&nbsp;<GradientText>idea</GradientText>&nbsp;into pixels..
+			Turning your&nbsp;<GradientText>idea</GradientText>&nbsp;into pixels
 		</>,
 		<>
-			Shaping the&nbsp;<GradientText>design</GradientText>..
+			Shaping the&nbsp;<GradientText>design</GradientText>
 		</>,
 		<>
-			Adding a touch of&nbsp;<GradientText>magic</GradientText>..
+			Adding a touch of&nbsp;<GradientText>magic</GradientText>
 		</>,
 		<>
-			Almost&nbsp;<GradientText>there</GradientText>..
+			Almost&nbsp;<GradientText>there</GradientText>
 		</>,
 		<>
 			Ready to see your&nbsp;<GradientText>vision</GradientText>?
@@ -109,16 +109,16 @@ export const PROMPT_LOADING_FEEDBACK = [
 	],
 	[
 		<>
-			Gathering&nbsp;<GradientText>inspiration</GradientText>..
+			Gathering&nbsp;<GradientText>inspiration</GradientText>
 		</>,
 		<>
-			Sketching&nbsp;<GradientText>possibilities</GradientText>..
+			Sketching&nbsp;<GradientText>possibilities</GradientText>
 		</>,
 		<>
-			Breathing life into your&nbsp;<GradientText>idea</GradientText>..
+			Breathing life into your&nbsp;<GradientText>idea</GradientText>
 		</>,
 		<>
-			Refining the&nbsp;<GradientText>details</GradientText>..
+			Refining the&nbsp;<GradientText>details</GradientText>
 		</>,
 		<>
 			Here it&nbsp;<GradientText>comes</GradientText>!
@@ -126,16 +126,16 @@ export const PROMPT_LOADING_FEEDBACK = [
 	],
 	[
 		<>
-			Imagining your&nbsp;<GradientText>world</GradientText>..
+			Imagining your&nbsp;<GradientText>world</GradientText>
 		</>,
 		<>
-			Translating thoughts into&nbsp;<GradientText>form</GradientText>..
+			Translating thoughts into&nbsp;<GradientText>form</GradientText>
 		</>,
 		<>
-			Crafting something&nbsp;<GradientText>beautiful</GradientText>..
+			Crafting something&nbsp;<GradientText>beautiful</GradientText>
 		</>,
 		<>
-			Polishing every&nbsp;<GradientText>edge</GradientText>..
+			Polishing every&nbsp;<GradientText>edge</GradientText>
 		</>,
 		<>
 			Almost&nbsp;<GradientText>ready</GradientText>!
@@ -143,16 +143,16 @@ export const PROMPT_LOADING_FEEDBACK = [
 	],
 	[
 		<>
-			Catching your creative&nbsp;<GradientText>spark</GradientText>..
+			Catching your creative&nbsp;<GradientText>spark</GradientText>
 		</>,
 		<>
-			Building the&nbsp;<GradientText>foundation</GradientText>..
+			Building the&nbsp;<GradientText>foundation</GradientText>
 		</>,
 		<>
-			Bringing it to&nbsp;<GradientText>life</GradientText>..
+			Bringing it to&nbsp;<GradientText>life</GradientText>
 		</>,
 		<>
-			Adding final&nbsp;<GradientText>touches</GradientText>..
+			Adding final&nbsp;<GradientText>touches</GradientText>
 		</>,
 		<>
 			Your creation&nbsp;<GradientText>awaits</GradientText>!
@@ -160,16 +160,16 @@ export const PROMPT_LOADING_FEEDBACK = [
 	],
 	[
 		<>
-			Dreaming in&nbsp;<GradientText>color</GradientText>..
+			Dreaming in&nbsp;<GradientText>color</GradientText>
 		</>,
 		<>
-			Designing with&nbsp;<GradientText>purpose</GradientText>..
+			Designing with&nbsp;<GradientText>purpose</GradientText>
 		</>,
 		<>
-			Molding your&nbsp;<GradientText>vision</GradientText>..
+			Molding your&nbsp;<GradientText>vision</GradientText>
 		</>,
 		<>
-			Fine-tuning every&nbsp;<GradientText>pixel</GradientText>..
+			Fine-tuning every&nbsp;<GradientText>pixel</GradientText>
 		</>,
 		<>
 			It's about to&nbsp;<GradientText>appear</GradientText>!
@@ -177,16 +177,16 @@ export const PROMPT_LOADING_FEEDBACK = [
 	],
 	[
 		<>
-			Collecting ideas from the&nbsp;<GradientText>ether</GradientText>..
+			Collecting ideas from the&nbsp;<GradientText>ether</GradientText>
 		</>,
 		<>
-			Forming the&nbsp;<GradientText>structure</GradientText>..
+			Forming the&nbsp;<GradientText>structure</GradientText>
 		</>,
 		<>
-			Infusing soul into the&nbsp;<GradientText>design</GradientText>..
+			Infusing soul into the&nbsp;<GradientText>design</GradientText>
 		</>,
 		<>
-			A few tweaks&nbsp;<GradientText>left</GradientText>..
+			A few tweaks&nbsp;<GradientText>left</GradientText>
 		</>,
 		<>
 			Here's your&nbsp;<GradientText>masterpiece</GradientText>!
@@ -194,16 +194,16 @@ export const PROMPT_LOADING_FEEDBACK = [
 	],
 	[
 		<>
-			Setting the stage for&nbsp;<GradientText>creativity</GradientText>..
+			Setting the stage for&nbsp;<GradientText>creativity</GradientText>
 		</>,
 		<>
-			Sketching the&nbsp;<GradientText>outlines</GradientText>..
+			Sketching the&nbsp;<GradientText>outlines</GradientText>
 		</>,
 		<>
-			Painting with&nbsp;<GradientText>imagination</GradientText>..
+			Painting with&nbsp;<GradientText>imagination</GradientText>
 		</>,
 		<>
-			Adding movement and&nbsp;<GradientText>flow</GradientText>..
+			Adding movement and&nbsp;<GradientText>flow</GradientText>
 		</>,
 		<>
 			Get ready to&nbsp;<GradientText>explore</GradientText>!

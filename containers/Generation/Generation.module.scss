@@ -3,11 +3,14 @@
 .Generation {
 	overflow: hidden;
 
-	padding: 0 $spacing-xs;
-	margin-bottom: $spacing-xxl;
-
 	.Title {
 		text-align: center;
+
+		padding: 0 $spacing-sm;
+
+		span {
+			font-weight: 500;
+		}
 	}
 
 	.TitleReady {
@@ -20,10 +23,14 @@
 		@include fade(out);
 		@include pop(out, top);
 
-		@include animate((pop-out-top, 0s, 1.5s, normal), (fade-out, 0s, 1.25s, normal));
+		@include animate((pop-out-top, 0s, 1.5s, $easing-accelerate), (fade-out, 0s, 1.25s, $easing-accelerate));
 	}
 }
 
 .GenerationDone {
 	overflow: unset;
+
+	@include hide;
+
+	@include animate((hide, 1.5s, 0s));
 }
