@@ -11,16 +11,27 @@
 
 	.Background {
 		@include position(absolute, 0, 0, 0, 0);
+	}
 
+	.Ready {
 		@include fade(in);
 
 		@include animate((fade-in, 0.5s, 2s, ease-out));
 	}
 
-	.Chat {
-		width: 90vw;
-		height: 100%;
+	.DoneDelay {
+		@include fade(out);
 
+		@include animate((fade-out, 1s, 1.5s, ease-out));
+	}
+
+	.Done {
+		@include fade(out);
+
+		@include animate((fade-out, 0s, 1.5s, ease-out));
+	}
+
+	.Focus {
 		z-index: 100;
 	}
 }

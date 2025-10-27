@@ -1,60 +1,89 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-import { PROMPT_PLACEHOLDER_IDEAS } from '@/lib/data';
+import { clsx } from '@/lib/style';
 
 import LightRays from '@/components/LightRays/LightRays';
+import LiquidEther from '@/components/LiquidEther/LiquidEther';
+import Silk from '@/components/Silk/Silk';
 import Chat, { PromptFields } from '@/containers/Chat/Chat';
 import Generation from '@/containers/Generation/Generation';
+import Preview from '@/containers/Preview/Preview';
 
 import classes from './Page.module.scss';
 
 export default function Home() {
-	const [step, setStep] = useState<number>();
+	const [step, setStep] = useState<number>(0);
 
-	useEffect(() => {
-		if (step == undefined || step === PROMPT_PLACEHOLDER_IDEAS.length) {
-			return;
-		}
-
-		const timeout = setTimeout(() => {
-			setStep((prevStep) => (prevStep ?? 0) + 1);
-		}, 5000);
-
-		return () => clearTimeout(timeout);
-	}, [step]);
+	const [prompt, setPrompt] = useState<string>();
+	const [data, setData] = useState<any>(false);
 
 	function handlePrompt({ prompt }: PromptFields) {
-		console.log({ prompt });
+		setPrompt(prompt);
+
+		setStep(1);
 	}
 
 	function handleGenerate() {
-		setStep(0);
+		setStep(2);
 	}
 
-	function handleDisplay() {
-		console.log('new website!');
+	function handleData() {
+		setData('abc');
+
+		setStep(3);
+	}
+
+	function handlePreview() {
+		setStep(4);
 	}
 
 	return (
 		<main className={classes.Home}>
-			<LightRays
-				className={classes.Background}
-				raysOrigin='top-center'
-				raysColor='#777777'
-				raysSpeed={0.25}
-				lightSpread={0.8}
-				rayLength={2}
-				mouseInfluence={0.05}
-				noiseAmount={0.1}
-				distortion={0.05}
-				followMouse
-			/>
+			{step < 2 && (
+				<>
+					<LightRays
+						className={clsx(classes.Background, step === 0 ? classes.Ready : classes.DoneDelay)}
+						raysOrigin='top-center'
+						raysColor='#777777'
+						raysSpeed={0.25}
+						lightSpread={0.8}
+						rayLength={4}
+						mouseInfluence={0.05}
+						noiseAmount={0.1}
+						distortion={0.05}
+						followMouse
+					/>
 
-			<Chat onPrompt={handlePrompt} onAnimationEnd={handleGenerate} className={classes.Chat} />
+					<Chat onPrompt={handlePrompt} onAnimationEnd={handleGenerate} className={classes.Focus} />
+				</>
+			)}
 
-			<Generation step={step} onAnimationEnd={handleDisplay} />
+			{step >= 2 && step < 4 && (
+				<>
+					<LiquidEther
+						className={clsx(classes.Background, step === 2 ? classes.Ready : classes.Done)}
+						cursorSize={150}
+						iterationsPoisson={8}
+					/>
+
+					<Generation
+						prompt={prompt}
+						onData={handleData}
+						onAnimationEnd={handlePreview}
+						className={classes.Focus}
+					/>
+				</>
+			)}
+
+			{step >= 4 && (
+				<>
+					<Silk className={clsx(classes.Background, classes.Ready)} speed={5} color='#100614' />
+
+					<Preview className={classes.Focus} />
+				</>
+			)}
 		</main>
 	);
 }
