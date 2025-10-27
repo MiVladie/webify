@@ -48,7 +48,7 @@ const Preview = ({ children, className }: Props) => {
 			</div>
 
 			<div className={classes.Controls}>
-				<Toggle options={DEVICE_OPTIONS} value={device} onSelect={handleDevice} className={classes.Devices} />
+				<Toggle options={DEVICE_OPTIONS} value={device!} onSelect={handleDevice} className={classes.Devices} />
 			</div>
 		</div>
 	);
