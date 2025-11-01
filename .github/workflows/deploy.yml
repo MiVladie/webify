@@ -41,6 +41,8 @@ jobs:
 
                   git checkout --orphan gh-pages
 
+                  cd $GITHUB_WORKSPACE
+
                   shopt -s extglob
                   rm -rf !("charme/out")
                   shopt -u extglob
