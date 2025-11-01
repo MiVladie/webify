@@ -36,6 +36,8 @@ jobs:
 
             - name: Deploy to gh-pages
               run: |
+                  cd charme
+
                   git config user.name "MiVladie"
                   git config user.email "MiVladie@users.noreply.github.com"
 
