@@ -39,20 +39,18 @@ jobs:
                   git config user.name "MiVladie"
                   git config user.email "MiVladie@users.noreply.github.com"
 
-                  cd $GITHUB_WORKSPACE
-
-                  mkdir _site
-                  cp -R charme/out/* _site/
-
                   git checkout --orphan gh-pages
                   git rm -rf .
 
-                  mv _site/* .
-                  rmdir _site
+                  shopt -s extglob
+                  rm -rf !("charme/out")
+                  shopt -u extglob
+
+                  cp -R charme/out/* .
 
                   touch .nojekyll
 
-                  rm -rf out
+                  rm -rf charme
 
                   git add .
                   git commit -m "Deploy to gh-pages"
