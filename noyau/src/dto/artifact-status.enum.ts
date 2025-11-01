@@ -1,0 +1,7 @@
+export enum ArtifactStatus {
+	GENERATING_PROMPT,
+	GENERATING_JSON,
+	GENERATING_HTML,
+	FINISHED,
+	FAILED
+}
