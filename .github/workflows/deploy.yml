@@ -36,12 +36,6 @@ jobs:
 
             - name: Deploy to gh-pages
               run: |
-                  ls -la
-
-                  cd $GITHUB_WORKSPACE
-
-                  ls -la
-
                   git config user.name "MiVladie"
                   git config user.email "MiVladie@users.noreply.github.com"
 
@@ -50,10 +44,12 @@ jobs:
                   ls -la
 
                   shopt -s extglob
-                  rm -rf !("charme/out")
+                  rm -rf !(charme)
                   shopt -u extglob
 
                   ls -la
+
+                  ls -la charme
 
                   cp -R charme/out/* .
 
