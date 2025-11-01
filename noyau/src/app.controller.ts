@@ -1,31 +1,32 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Post } from '@nestjs/common';
+import { Body, Controller, Get, NotFoundException, Param, Post } from '@nestjs/common';
 
 import { AppService } from './app.service';
-import { CreateArtifactDto, CreateArtifactResponseDto } from './dto/create-artifact.dto';
-import { ArtifactStatus } from './dto/artifact-status.enum';
+import { CreateArtefactDto, CreateArtefactResponseDto } from './dto/create-artefact.dto';
+import { GetArtefactResponseDto } from './dto/get-artefact.dto';
 
-@Controller('artifacts')
+@Controller('artefacts')
 export class AppController {
 	constructor(private readonly appService: AppService) {}
 
 	@Get(':id')
-	get(@Param('id', ParseIntPipe) id: number) {
-		console.log({ id });
+	async get(@Param('id') id: string): Promise<GetArtefactResponseDto> {
+		const artefact = await this.appService.findOne(id);
 
-		return { status: ArtifactStatus.FINISHED, html: '', message: 'Artifact generation is complete!' };
-	}
+		if (!artefact) {
+			throw new NotFoundException();
+		}
 
-	@Get(':id/status')
-	getStatus(@Param('id', ParseIntPipe) id: number) {
-		console.log({ id });
-
-		return { status: ArtifactStatus.GENERATING_PROMPT, message: 'Artifact is being created!' };
+		return { artefact, message: 'Artefact generation is complete!' };
 	}
 
 	@Post()
-	create(@Body() body: CreateArtifactDto): CreateArtifactResponseDto {
-		console.log(body);
+	async create(@Body() body: CreateArtefactDto): Promise<CreateArtefactResponseDto> {
+		const artefact = await this.appService.create(body.prompt);
 
-		return { status: ArtifactStatus.GENERATING_PROMPT, message: 'Artifact generation started!' };
+		if (!artefact) {
+			throw new Error();
+		}
+
+		return { artefact, message: 'Artefact generation started!' };
 	}
 }

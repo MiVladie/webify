@@ -1,4 +1,4 @@
-export enum ArtifactStatus {
+export enum ArtefactStatus {
 	GENERATING_PROMPT,
 	GENERATING_JSON,
 	GENERATING_HTML,
