@@ -41,23 +41,15 @@ jobs:
 
                   git checkout --orphan gh-pages
 
-                  ls -la
+                  mkdir _keep
+                  cp -R charme/out/* _keep/
 
-                  shopt -s extglob
-                  rm -rf !(charme)
-                  shopt -u extglob
+                  rm -rf ./* ./.??* !(_keep)
 
-                  ls -la
-
-                  ls -la charme
-
-                  cp -R charme/out/* .
-
-                  ls -la
+                  mv _keep/* .
+                  rmdir _keep
 
                   touch .nojekyll
-
-                  rm -rf charme
 
                   git add .
                   git commit -m "Deploy to gh-pages"
