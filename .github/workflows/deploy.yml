@@ -26,10 +26,12 @@ jobs:
 
             - name: Install dependencies
               run: |
+                  cd charme
                   npm install
 
             - name: Build project
               run: |
+                  cd charme
                   npm run build
 
             - name: Deploy to gh-pages
