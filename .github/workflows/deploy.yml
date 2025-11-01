@@ -44,7 +44,9 @@ jobs:
                   mkdir _keep
                   cp -R charme/out/* _keep/
 
-                  find . -mindepth 1 ! -name '_keep' -exec rm -rf {} +
+                  shopt -s extglob
+                  rm -rf -- !(_keep)
+                  shopt -u extglob
 
                   mv _keep/* .
                   rmdir _keep
