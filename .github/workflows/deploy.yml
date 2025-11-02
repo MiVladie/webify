@@ -1,0 +1,61 @@
+name: Deploy Webify website
+
+on:
+    push:
+        branches:
+            - master
+        paths:
+            - 'charme/**'
+
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '21' # Use your Node.js version
+
+            - name: Install dependencies
+              run: |
+                  cd charme
+                  npm install
+
+            - name: Build project
+              run: |
+                  cd charme
+                  npm run build
+
+            - name: Deploy to gh-pages
+              run: |
+                  git config user.name "MiVladie"
+                  git config user.email "MiVladie@users.noreply.github.com"
+
+                  git checkout --orphan gh-pages
+
+                  mkdir _keep
+                  cp -R charme/out/* _keep/
+
+                  shopt -s extglob
+                  rm -rf -- !(_keep)
+                  shopt -u extglob
+
+                  mv _keep/* .
+                  rmdir _keep
+
+                  touch .nojekyll
+
+                  git add .
+                  git commit -m "Deploy to gh-pages"
+                  git push -f origin gh-pages
+
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
