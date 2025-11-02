@@ -1,4 +1,4 @@
-import { ArtefactStatus } from 'src/dto/artefact-status.enum';
+import { ArtefactStatus } from 'src/artefact/dto/artefact-status.enum';
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('artefacts')

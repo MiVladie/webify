@@ -1,4 +1,4 @@
-import { Artefact } from 'src/entities/artefact.entity';
+import { Artefact } from 'src/artefact/artefact.entity';
 
 export class GetArtefactResponseDto {
 	artefact: Artefact | null;

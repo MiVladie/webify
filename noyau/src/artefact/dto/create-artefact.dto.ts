@@ -1,5 +1,5 @@
 import { IsNotEmpty, IsString } from 'class-validator';
-import { Artefact } from 'src/entities/artefact.entity';
+import { Artefact } from 'src/artefact/artefact.entity';
 
 export class CreateArtefactDto {
 	@IsString()
